@@ -12,7 +12,9 @@
     This page provides notes for my <a href="https://tpdp.journalprivacyconfidentiality.org/2024/">TPDP 2024</a> talk called "Data and Privacy in Data Privacy".
     
     <h2>Training Data Attribution</h2>
-    
+    <h3>Short Summary</h3>
+    Differential privacy, membership inference, and training data attribution are all research areas that care a lot about "counterfactual worlds" where certain examples are included or excluded. Right now, there is not much overlap between these areas (both in the people working on them and the techniques), and my claim here is that there should be.
+
     <h3>Reading List</h3>
     <ul>
       <li>
@@ -25,7 +27,7 @@
         <a href="https://arxiv.org/abs/2202.00622">Datamodels: Predicting Predictions from Training Data</a>. A very cool paper which improves upon the Feldman and Zhang influence estimation approach by treating it as a prediction problem. Their initial experiments use exactly the models that Feldman and Zhang trained!!
       </li>
       <li>
-        <a href="https://arxiv.org/abs/2303.14186">TRAK: TRAK: Attributing Model Behavior at Scale</a>. A more efficient method for training data attribution. More recently, there's also <a href="https://arxiv.org/abs/2405.13954">LoGra</a> and <a href="https://arxiv.org/abs/2308.03296">recent work</a> from Anthropic on <a href="https://arxiv.org/abs/1703.04730">influence functions</a>.
+        <a href="https://arxiv.org/abs/2303.14186">TRAK: Attributing Model Behavior at Scale</a>. A more efficient method for training data attribution. More recently, there's also <a href="https://arxiv.org/abs/2405.13954">LoGra</a> and <a href="https://arxiv.org/abs/2308.03296">recent work</a> from Anthropic on <a href="https://arxiv.org/abs/1703.04730">influence functions</a>.
       </li>
     </ul>
 
@@ -37,6 +39,8 @@
     </ul>
     
     <h2>Data Curation</h2>
+    <h3>Summary</h3>
+    Curating data has become very important to training state of the art models. However, there is limited investigation of the implications and opportunities of data curation for privacy.
     
     <h3>Reading List</h3>
     <ul>
@@ -52,6 +56,9 @@
       <li>
         <a href="https://arxiv.org/abs/2403.13041">Provable Privacy with Non-Private Pre-Processing</a>. Shows how to account for privacy leakage from nonprivate data processing such as deduplication.
       </li>
+      <li>
+        The recent ICML best paper <a href="https://arxiv.org/abs/2212.06470">Position: Considerations for Differentially Private Learning with Large-Scale Public Pretraining</a> has arguments which relate to topics in this section. It's worth reading and might lead to some other questions.
+      </li>
     </ul>
 
     <h3>Open Questions/Directions</h3>
@@ -62,23 +69,26 @@
     </ul>
     
     <h2>Privacy Semantics</h2>
+    <h3>Summary</h3>
+    The ML privacy literature has begun to consider different "privacy semantics". Often dealing more with access control-type approaches rather than differential privacy, the DP community's experience thinking about privacy may be helpful here.
     
     <h3>Reading List</h3>
     <ul>
       <li>
-        <!-- Example link; replace with actual paper link if available -->
-        <a href="#">Privacy Semantics Paper 1</a>
+        Contextual integrity in LLMs: <a href="https://arxiv.org/abs/2310.17884">Can LLMs keep a Secret?</a>, <a href="https://arxiv.org/abs/2408.02373">Contextual Integrity in Privacy-Conscious Assistants</a>
       </li>
       <li>
-        <!-- Example link; replace with actual paper link if available -->
-        <a href="#">Privacy Semantics Paper 2</a>
+        <a href="https://arxiv.org/abs/2401.15774">Contextual integrity + DP</a>
+      </li>
+      <li>
+        Retrieval-augmented LLMs (with applications to machine unlearning): <a href="https://arxiv.org/abs/2308.04430">SILO Language Models</a>. The relevant research direction here is called retrieval-augmented generation (RAG). The backbone retrieval-augmentation technique for SILO is <a href="https://arxiv.org/abs/1911.00172">kNN-LM</a>. Some other RAG flavors include <a href="https://arxiv.org/abs/2112.04426">RETRO</a> and in context RAG (e.g. <a href="https://arxiv.org/abs/2210.09150">a</a>, <a href="https://arxiv.org/abs/2212.14024">b</a>, <a href="https://arxiv.org/abs/2210.09150">c</a>). Most discussion of RAG these days refers to in context RAG techniques of some form. Language models for search such as Google Search Generative Experience, the Bing Chatbot, or Perplexity can be seen as a form of in context RAG, where the "retriever" is the search engine itself!
       </li>
     </ul>
 
     <h3>Open Questions/Directions</h3>
     <ul>
-      <li>Open Question 1</li>
-      <li>Open Question 2</li>
+      <li>Are there applications/threat models where combining some of these different privacy semantics (including DP) makes sense?</li>
+      <li>Are there interesting attacks on these systems?</li>
     </ul>
   </div>
 </body>
