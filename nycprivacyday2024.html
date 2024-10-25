@@ -14,7 +14,9 @@
     
     <b>Membership Inference</b> is a privacy attack on a data example that asks “was this example used in training?” The concrete risk of membership inference is often motivated with medical use cases: if I learn that someone’s data appeared in a drug trial for a specific disease, that membership reveals that they have the disease. See <a href=”https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1000167”> Homer et al. 2008</a>, <a href=”https://arxiv.org/abs/1610.05820”>Shokri et al. 2016</a>, <a href=”https://arxiv.org/abs/1709.01604”>Yeom et al. 2017</a>
     <br>
+    <br>
     <b>Memorization</b> is an overloaded word, which I use to refer here to a generative model’s “vulnerability to training data extraction attacks”, attacks which recover individual training data records from a model. There are several papers that propose definitions capturing “success” of such a method, and this talk is agnostic to the specific definition (see <a href=”https://arxiv.org/abs/2012.07805”>Carlini et al. 2020</a>, <a href=”https://arxiv.org/abs/2301.13188”>Carlini et al. 2023</a>, <a href=”https://arxiv.org/abs/2311.17035”>Nasr et al. 2023</a>, <a href=”https://arxiv.org/abs/2404.15146”>Schwarzchild et al. 2024</a>, but not <a href=”https://arxiv.org/abs/2112.12938”>Zhang et al. 2021</a>).
+    <br>
     <br>
     Intuitively, these are similar threats: they both are involve leakage of training data from a model, and, on a technical level, membership inference is a common subroutine in training data extraction (e.g. <a href=”https://arxiv.org/abs/2012.07805”>Carlini et al. 2020</a>, <a href=”https://arxiv.org/abs/2301.13188”>Carlini et al. 2023</a>). However, the goal of this talk is to “separate” membership inference and training data extraction attacks. There are some properties of datasets and model training which have differing impacts on the two attacks, and understanding these differences is very important for understanding how we should measure and mitigate privacy risks of training.
 
@@ -24,21 +26,27 @@
     <h3>Duplication</h3>
     Duplication is when different examples in the training set are nearly identical. This is intentionally imprecise - there are many different ways of deciding when two examples are “nearly identical”. Note: in my talk, this is the only property I had time for!
     <br>
+    <br>
     <b>Duplication and training data extraction.</b> It is by now well known that training data extraction is easier for duplicated data. See <a href=”https://arxiv.org/abs/2107.06499”>Lee et al. 2021</a>, <a href=”https://arxiv.org/abs/2202.06539”>Kandpal et al. 2022</a>, <a href=”https://arxiv.org/abs/2202.07646”>Carlini et al. 2023</a>.
+    <br>
     <br>
     <b>Duplication and membership inference.</b> Duplication has the opposite impact on membership inference. If there exist two examples which are near duplicates of each other, they likely have very similar impacts on training, and so it is hard to tell a model trained on one from a model trained on the other. See <a href=”https://arxiv.org/abs/2206.10469”>Carlini et al. 2022</a>, <a href=”https://arxiv.org/abs/2402.07841”>Duan et al. 2024</a>, <a href=”https://arxiv.org/abs/2409.19798”>Zhang et al. 2024</a>.
 
     <h3>Data Poisoning</h3>
     Data poisoning is when an adversary adds some carefully chosen data into a training set, to modify a trained model’s behavior. The observations here mainly come from <a href=”https://arxiv.org/abs/2204.00032”>Tramer et al. 2022</a> and <a href=”https://arxiv.org/abs/2211.00463”>Chen et al. 2022</a>, and <a href=”https://arxiv.org/abs/2206.10469”>Carlini et al. 2022</a>.
     <br>
+    <br>
     <b>Poisoning and membership inference.</b> Poisoning attacks can amplify membership inference: these attacks will generally force an example to “become an outlier” by adding similar, but mislabeled examples.
+    <br>
     <br>
     <b>Poisoning and training data extraction.</b> By adding mislabeled examples, the models ability to correctly predict/generate an example decreases substantially. Improvements to membership inference come at the cost of a worse ability to extract information.
 
     <h3>Training Data Order</h3>
     Large models now train for a small number of epochs, meaning some examples may be seen only at the start of training, or only at the end. This may . This line of investigation derives from work in differential privacy (<a href=”https://arxiv.org/abs/1808.06651”>Feldman et al. 2018</a>).
     <br>
+    <br>
     <b>Training order and membership inference.</b> Examples seen early in training are often less vulnerable to membership inference than more recently seen examples. This holds for specific differentially private training algorithms (<a href=”https://arxiv.org/abs/1808.06651”>Feldman et al. 2018</a>) as well as empirically for standard model training (<a href=”https://arxiv.org/abs/2207.00099”>Jagielski et al. 2022</a>). 
+    <br>
     <br>
     <b>Training order and extraction.</b> Interestingly, training data order doesn’t seem to impact extraction as significantly as membership inference (see <a href=”https://arxiv.org/abs/2205.10770”>Tirumala et al. 2022</a> and <a href=”https://arxiv.org/abs/2304.11158”>Biderman et al. 2023</a>).
 
@@ -48,6 +56,7 @@
     
     <h3>Neither Attack Directly Measures “Privacy”</h3>
     Looking at the impact of duplication on our attacks, training data extraction starts to look too expansive, often catching things which are not interesting cases of privacy leakage due to duplication on the internet (e.g. code licenses, the Bible, lists of numbers). However, when looking at membership inference, we seem to be casting too narrow a net, ignoring the impact of duplication.
+    <br>
     <br>
     For measuring privacy risk, we’d like something closer to understanding how much a model learns about what is *unique* about a *person*, catching things like Ann Graham Lotz or personal information about an individual. In general, though, this is a hard problem. Attempts have been made, such as by identifying PII (see <a href=”https://arxiv.org/abs/2302.00539”>Lukas et al. 2023</a> or recent memorization evaluations for the <a href=”https://arxiv.org/abs/2403.08295”>Gemma models</a>), or by inserting canary data (see <a href=”https://arxiv.org/abs/1802.08232”>Carlini et al. 2018</a> and more recently <a href=”https://arxiv.org/abs/2409.19798”>Zhang et al. 2024</a>). Both of these are nice (of course they have drawbacks), but one big omission is unstructured private information, which is generally harder to annotate (I’m optimistic, though, since datasets are out there: <a href=”https://arxiv.org/abs/2401.06121”>TOFU</a>, <a href=”https://openreview.net/forum?id=04c5uWq9SA”>MedQA/WildChat</a>).
     
