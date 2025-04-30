@@ -1,22 +1,35 @@
 <!doctype html>
 <html lang="en-US">
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <link href="https://fonts.googleapis.com/css?family=Lora|Roboto:500" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
 
   <title>Matthew Jagielski</title>
+  <style>
+    /* Basic styling for the nav bar */
+    .nav-pills .nav-link {
+      font-weight: 500;
+    }
+    .nav-pills .nav-link.active {
+      background-color: #007bff;
+      color: white;
+    }
+    /* Style for keeping sections distinct */
+    .content-section {
+      padding-top: 20px;
+      margin-top: -20px; /* Offset for fixed navbar if it were used */
+    }
+  </style>
 </head>
 <body>
   <div class="container mt-3">
     <div class="row">
-      <div id="About Me" class="col-6">
+      <div class="col-md-6">
       	<h1>Matthew Jagielski</h1>
       	Google DeepMind
       	<br>
@@ -26,92 +39,173 @@
         <br>
 	<a href="https://scholar.google.com/citations?user=_8rw_GMAAAAJ&hl=en">Google Scholar</a>
       </div>
-      <div class="col-5 d-none d-sm-block">
-        <img src="images/me.jpg" alt="me.jpg" height="300px" width="auto">
+      <div class="col-md-5 d-none d-sm-block">
+        <img src="images/me.jpg" alt="me.jpg" height="300px" width="auto" class="img-fluid">
       </div>
     </div>
-    <div class="row mt-3">
-      <div class="col">
-        <h6>News</h6>
-	[Dec 2023] Our paper <a href="https://arxiv.org/abs/2305.08846">Privacy Auditing in One (1) Training Run</a> received an <a href="https://blog.neurips.cc/2023/12/11/announcing-the-neurips-2023-paper-awards/">outstanding paper award at NeurIPS 2023!</a> 
-	<br>
-	<br>
-	[June - Sept 2023] I enjoyed hosting <a href="https://knchadha.github.io/">Karan Chadha</a> as a student researcher, together with Nicolas Papernot! Stay tuned for his work, and hire him - he's on the job market!
-	<br>
-	<br>
-	[Aug 2023] Our paper <a href="https://arxiv.org/abs/2302.07956">Tight Auditing of Differentially Private Machine Learning</a> won a best paper award at USENIX Security 2023!
-	<br>
-	<br>
-	[July 2023] Our paper <a href="https://arxiv.org/abs/2012.07805">"Extracting Training Data from Large Language Models"</a> won runner up for the <a href="https://petsymposium.org/award/winners.php">Caspar Bowden award</a> at PETS 2023!
-	<br>
-	<br>
-	[June 2023] <a href="https://lishanyang.github.io/">Lishan Yang</a> and I cochaired the <a href="https://dependablesecureml.github.io/cfp.html">DSML 2023 workshop</a>, colocated with DSN 2023 in Porto, Portugal! Thank you to everyone involved, especially our attendees, keynote speakers (Paolo Rech and Andrew Paverd) and our steering committee!
-	<br>
-	<br>
-	<h6>About Me</h6>
-	I am a research scientist at Google DeepMind, working on <a href="https://www.cs.jhu.edu/~terzis/">Andreas Terzis's team</a>. I work on security, privacy, and memorization in machine learning systems. This includes directions like <a href="https://arxiv.org/abs/2006.07709">privacy</a> <a href="https://arxiv.org/abs/2305.08846">auditing</a>, <a href="https://arxiv.org/abs/2012.07805">memorization</a> <a href="https://arxiv.org/abs/2207.00099">in</a> <a href="https://arxiv.org/abs/2301.13188">generative</a> <a href="https://arxiv.org/abs/2311.17035">models</a>, <a href="https://arxiv.org/abs/1804.00308">data</a> <a href="https://arxiv.org/abs/2006.14026">poisoning</a>, and <a href="https://arxiv.org/abs/1909.01838">model</a> <a href="https://arxiv.org/abs/2003.04884">stealing</a>.
-	<br>
-	<br>
-	I received my PhD from Northeastern University, where I was fortunate to be advised by <a href="http://www.ccs.neu.edu/home/alina/">Alina Oprea</a> and <a href="https://cnitarot.github.io/">Cristina Nita-Rotaru</a>, as a member of the Network and Distributed Systems Security Lab (<a href="https://nds2.ccs.neu.edu/">NDS2</a>).
-	<br>
-        <br>
-	In other news, I enjoy running, swimming, and biking. I'm also a retired <a href="https://www.youtube.com/watch?v=3lHG5ywn0P8">Super Smash Brothers tournament competitor</a>.
+
+    <ul class="nav nav-pills mt-4 mb-4">
+      <li class="nav-item">
+        <a class="nav-link active" href="#about-me-section">About Me</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#news-section">News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#publications-section">Publications</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#writing-section">Writing</a>
+      </li>
+    </ul>
+
+    <div id="about-me-section" class="content-section">
+      <div class="row mt-3">
+        <div class="col">
+          <h6>About Me</h6>
+          I am a research scientist at Google DeepMind, working on <a href="https://www.cs.jhu.edu/~terzis/">Andreas Terzis's team</a>. I work on security, privacy, and memorization in machine learning systems. This includes directions like <a href="https://arxiv.org/abs/2006.07709">privacy</a> <a href="https://arxiv.org/abs/2305.08846">auditing</a>, <a href="https://arxiv.org/abs/2012.07805">memorization</a> <a href="https://arxiv.org/abs/2207.00099">in</a> <a href="https://arxiv.org/abs/2301.13188">generative</a> <a href="https://arxiv.org/abs/2311.17035">models</a>, <a href="https://arxiv.org/abs/1804.00308">data</a> <a href="https://arxiv.org/abs/2006.14026">poisoning</a>, and <a href="https://arxiv.org/abs/1909.01838">model</a> <a href="https://arxiv.org/abs/2003.04884">stealing</a>.
+          <br>
+          <br>
+          I received my PhD from Northeastern University, where I was fortunate to be advised by <a href="http://www.ccs.neu.edu/home/alina/">Alina Oprea</a> and <a href="https://cnitarot.github.io/">Cristina Nita-Rotaru</a>, as a member of the Network and Distributed Systems Security Lab (<a href="https://nds2.ccs.neu.edu/">NDS2</a>).
+          <br>
+          <br>
+          In other news, I enjoy running, swimming, and biking. I'm also a retired <a href="http://www.youtube.com/watch?v=3lHG5ywn0P8">Super Smash Brothers tournament competitor (Kelvinheit (Pikachu) VS Prime (Yoshi) | Superboomed | Pools)</a>.
+        </div>
+      </div>
+    </div>
+
+    <div id="news-section" class="content-section pt-4">
+      <div class="row mt-3">
+        <div class="col">
+          <h6>News</h6>
+          [Dec 2023] Our paper <a href="https://arxiv.org/abs/2305.08846">Privacy Auditing in One (1) Training Run</a> received an <a href="https://blog.neurips.cc/2023/12/11/announcing-the-neurips-2023-paper-awards/">outstanding paper award at NeurIPS 2023!</a>
+          <br>
+          <br>
+          [June - Sept 2023] I enjoyed hosting <a href="https://knchadha.github.io/">Karan Chadha</a> as a student researcher, together with Nicolas Papernot! Stay tuned for his work, and hire him - he's on the job market!
+          <br>
+          <br>
+          [Aug 2023] Our paper <a href="https://arxiv.org/abs/2302.07956">Tight Auditing of Differentially Private Machine Learning</a> won a best paper award at USENIX Security 2023!
+          <br>
+          <br>
+          [July 2023] Our paper <a href="https://arxiv.org/abs/2012.07805">"Extracting Training Data from Large Language Models"</a> won runner up for the <a href="https://petsymposium.org/award/winners.php">Caspar Bowden award</a> at PETS 2023!
+          <br>
+          <br>
+          [June 2023] <a href="https://lishanyang.github.io/">Lishan Yang</a> and I cochaired the <a href="https://dependablesecureml.github.io/cfp.html">DSML 2023 workshop</a>, colocated with DSN 2023 in Porto, Portugal! Thank you to everyone involved, especially our attendees, keynote speakers (Paolo Rech and Andrew Paverd) and our steering committee!
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+    
+    <div id="publications-section" class="content-section pt-4">
+      <div class="row mt-3">
+        <div class="col">
+          <h6>Selected Publications - see <a href="https://scholar.google.com/citations?user=_8rw_GMAAAAJ&hl=en">Google Scholar</a> for full list</h6>
+          <ul>
+              <li>
+                Measuring Forgetting of Memorized Training Examples
+                <br>
+                Matthew Jagielski, Om Thakkar, Florian Tramèr, Daphne Ippolito, Katherine Lee, Nicholas Carlini, Eric Wallace, Shuang Song, Abhradeep Thakurta, Nicolas Papernot, Chiyuan Zhang
+                <br>
+                ICLR 2023
+                <br>
+                <a href="https://arxiv.org/abs/2207.00099">[Paper]</a>
+              </li>
+              <li>
+                Extracting Training Data from Large Language Models
+                <br>
+                Nicholas Carlini, Florian Tramer, Eric Wallace, Matthew Jagielski, Ariel Herbert-Voss, Katherine Lee, Adam Roberts, Tom Brown, Dawn Song, Ulfar Erlingsson, Alina Oprea, Colin Raffel
+                <br>
+                USENIX Security 2021
+                <br>
+                <a href="https://arxiv.org/abs/2012.07805">[Paper]</a>
+              </li>
+              <li>
+                Auditing Differentially Private Machine Learning - How Private is Private SGD?
+                <br>
+                Matthew Jagielski, Jonathan Ullman, Alina Oprea
+                <br>
+                NeurIPS 2020, TPDP 2020 Contributed Talk
+                <br>
+                <a href="https://arxiv.org/abs/2006.07709">[Paper]</a> <a href="https://github.com/jagielski/auditing-dpsgd">[Code]</a> <a href="files/neuripsposter.pdf">[Poster]</a> <a href="http://www.youtube.com/watch?v=3Qp4GVXfMPE">[How Private is Private SGD? (3 minute version) [NeurIPS 2020]]</a>
+              </li>
+              <li>
+                High-Fidelity Extraction of Neural Network Models
+                <br>
+                Matthew Jagielski, Nicholas Carlini, David Berthelot, Alex Kurakin, and Nicolas Papernot
+                <br>
+                USENIX Security 2020
+                <br>
+                <a href="https://arxiv.org/abs/1909.01838">[Paper]</a> <a href="http://www.cleverhans.io/2020/05/21/model-extraction.html">[Blog]</a> <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/jagielski">[Talk]</a>
+              </li>
+                <li>
+                    Manipulating Machine Learning: Poisoning Attacks and Countermeasures for Regression Learning
+                    <br>
+                    Matthew Jagielski, Alina Oprea, Chang Liu, Cristina Nita-Rotaru, and Bo Li
+                    <br>
+                    IEEE S&P (Oakland) 2018
+                    <br>
+                    <a href="https://github.com/jagielski/manip-ml">[Code]</a> <a href="https://arxiv.org/abs/1804.00308">[Paper]</a> <a href="http://www.youtube.com/watch?v=ahC4KPd9lSY">[Manipulating Machine Learning: Poisoning Attacks & Countermeasures]</a>
+                </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="writing-section" class="content-section pt-4">
+      <div class="row mt-3">
+        <div class="col">
+          <h6>Writing</h6>
+          <p>This is where your writing content will go. You can add articles, blog posts, or any other written material here.</p>
+          </div>
       </div>
     </div>
     <br>
-    <div class="row mt-3">
-      <div class="col">
-        <h6>Selected Publications - see <a href="https://scholar.google.com/citations?user=_8rw_GMAAAAJ&hl=en">Google Scholar</a> for full list</h6>
-        <ul>
-		  <li>
-			Measuring Forgetting of Memorized Training Examples
-			<br>
-			Matthew Jagielski, Om Thakkar, Florian Tramèr, Daphne Ippolito, Katherine Lee, Nicholas Carlini, Eric Wallace, Shuang Song, Abhradeep Thakurta, Nicolas Papernot, Chiyuan Zhang
-			<br>
-			ICLR 2023
-			<br>
-			<a href="https://arxiv.org/abs/2207.00099">[Paper]</a>
-		  </li>
-		  <li>
-			Extracting Training Data from Large Language Models
-			<br>
-			Nicholas Carlini, Florian Tramer, Eric Wallace, Matthew Jagielski, Ariel Herbert-Voss, Katherine Lee, Adam Roberts, Tom Brown, Dawn Song, Ulfar Erlingsson, Alina Oprea, Colin Raffel
-			<br>
-			USENIX Security 2021
-			<br>
-			<a href="https://arxiv.org/abs/2012.07805">[Paper]</a>
-		  </li>
-		  <li>
-			Auditing Differentially Private Machine Learning - How Private is Private SGD?
-			<br>
-			Matthew Jagielski, Jonathan Ullman, Alina Oprea
-			<br>
-			NeurIPS 2020, TPDP 2020 Contributed Talk
-			<br>
-			<a href="https://arxiv.org/abs/2006.07709">[Paper]</a> <a href="https://github.com/jagielski/auditing-dpsgd">[Code]</a> <a href="files/neuripsposter.pdf">[Poster]</a> <a href="https://youtu.be/3Qp4GVXfMPE">[3min talk]</a>
-		  </li>
-		  <li>
-			High-Fidelity Extraction of Neural Network Models
-			<br>
-			Matthew Jagielski, Nicholas Carlini, David Berthelot, Alex Kurakin, and Nicolas Papernot
-			<br>
-			USENIX Security 2020
-			<br>
-			<a href="https://arxiv.org/abs/1909.01838">[Paper]</a> <a href="http://www.cleverhans.io/2020/05/21/model-extraction.html">[Blog]</a> <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/jagielski">[Talk]</a>
-		  </li>
-          	<li>
-            		Manipulating Machine Learning: Poisoning Attacks and Countermeasures for Regression Learning
-            		<br>
-            		Matthew Jagielski, Alina Oprea, Chang Liu, Cristina Nita-Rotaru, and Bo Li
-            		<br>
-            		IEEE S&P (Oakland) 2018
-            		<br>
-            		<a href="https://github.com/jagielski/manip-ml">[Code]</a> <a href="https://arxiv.org/abs/1804.00308">[Paper]</a> <a href="https://www.youtube.com/watch?v=ahC4KPd9lSY">[Talk]</a>
-          	</li>
-        </ul>
-      </div>
-    </div>
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <script>
+    // JavaScript to handle tab switching for content visibility
+    // This is a simple way to show/hide content based on nav clicks
+    // and also allows for direct linking to sections.
+    $(document).ready(function(){
+      // Hide all content sections initially
+      $('.content-section').hide();
+
+      // Function to show the target section and update active nav link
+      function showSection(targetId) {
+        $('.content-section').hide(); // Hide all sections
+        $(targetId).show(); // Show the target section
+
+        $('.nav-link').removeClass('active'); // Remove active class from all nav links
+        $('a[href="' + targetId + '"]').addClass('active'); // Add active class to the clicked nav link
+      }
+
+      // Show section based on URL hash if present, otherwise default to first tab
+      var hash = window.location.hash;
+      if (hash) {
+        showSection(hash);
+      } else {
+        showSection($('.nav-pills .nav-link').first().attr('href')); // Show the first tab's content
+      }
+
+      // Handle clicks on nav links
+      $('.nav-pills .nav-link').on('click', function(e){
+        e.preventDefault(); // Prevent default anchor click behavior
+        var targetId = $(this).attr('href');
+        window.location.hash = targetId; // Update URL hash for direct linking/bookmarking
+        // showSection(targetId); // This will be handled by hashchange event
+      });
+      
+      // Listen for hash changes to show the correct section
+      $(window).on('hashchange', function() {
+        showSection(window.location.hash || $('.nav-pills .nav-link').first().attr('href'));
+      }).trigger('hashchange'); // Trigger on load to handle initial state
+
+    });
+  </script>
 </body>
 </html>
-
