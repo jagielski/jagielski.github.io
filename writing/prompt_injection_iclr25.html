@@ -134,7 +134,7 @@
                 <li>Most code agents will be used for working within a single, generally trusted, codebase. An insider risk threat model also doesn't make much sense in a code environment - why write code to prompt inject a model to write malicious code in your codebase when you could just... write the code?</li>
                 <li>Code agent risk will be limited to people with some floor level of technical knowhow, limiting the number of people who will be exposed and making individuals less likely to be at risk relative to less technical people (who would be exposed to other risks, see later predictions).</li>
             </ol>
-            <h4>Here are some thoughts Yiming Zhang wanted to share:</h4>
+            <h5>Here are some thoughts Yiming Zhang wanted to share:</h5>
             <blockquote>
                 <p>A concrete scenario I can imagine happening:</p>
                 <ul>
@@ -201,7 +201,7 @@
             <h3 class="prediction-title">Prediction 4: Widespread Influence <span class="prediction-count">(5 people)</span></h3>
             <p>This attack involves prompt injection used to directly influence humans’ opinions or decisions. For example: Someone wants you to buy their coffeemaker. They add text to their webpage, so that when retrieved by Google’s AI Overview (or Perplexity, Gemini/OpenAI Deep Research, etc.), the target coffeemaker ends up being recommended. There are actually already a couple papers showing that you can do something like this (<a href="https://arxiv.org/abs/2406.18382" target="_blank" rel="noopener noreferrer">1</a>, <a href="https://arxiv.org/abs/2404.07981" target="_blank" rel="noopener noreferrer">2</a>)!</p>
             <p>When people were mentioning this, the thought that was on my mind was "but I want to know the *worst* thing that will happen because of prompt injection". And the arguments I got back were basically about defining "worst". It seems pretty likely that 1) this will happen all over the place (SEO/reputation management is already a thing!), and 2) attacks like this will influence people in a whole host of ways (not just for product decisions, but for political opinions, opinions of people, life decisions, etc.). It's difficult to quantify the harm of this relative to the other attacks, but widespread influence shouldn’t be ignored because it's hard to measure.</p>
-            <h4>John Kirchenbauer shares:</h4>
+            <h5>John Kirchenbauer shares:</h5>
             <blockquote>
                 <p>“I think the other predictions here are more eyecatching. Prediction 1 and 2 are more interesting technical questions - you can run concrete experiments to measure them. Prediction 3 at least has concrete units to measure impact in. But in the end, the pervasive, hard to measure, and even more tricky to stop vectors will be the ways in which the agent-integrated internet starts to behave as its own new type of dynamical system. I worry that the confluence of model capability, ubiquity, and user incentives will all conspire to make AI powered influence campaigns incredibly easy to implement and also maybe even easy to lose control of. Minimally, they will be very hard to detect as they are happening (unless/even if detection technology keeps pace).”</p>
             </blockquote>
@@ -231,7 +231,7 @@
                 <li>People won't trust models with interesting enough things in 2025.</li>
                 <li>Models just being dumb will do more harm than prompt injection.</li>
             </ol>
-            <h4>Here are some more specific claims:</h4>
+            <h5>Here are some more specific claims:</h5>
             <p><strong>Juliette Pluto</strong> believes in reasoning 1 and 2, and also shares:</p>
             <blockquote>
                  “There will not be a news story about an indirect prompt injection in the wild that appears in two major publications (e.g. NYTimes and Washington Post).”<br>
@@ -244,6 +244,10 @@
             <p><strong>Yiming Zhang:</strong></p>
             <blockquote>
                  “My prediction is that (due to capability or slow adaptation) people won't give broad enough access to agents for them to be both prompt-injected and be able to do a lot of harm. If I had to put a number on it, I would guess less than $10M in damages by the end of 2025.”
+            </blockquote>
+            <p><strong>Nikola Jovanović:</strong></p>
+            <blockquote>
+                  “I think moderately tech-savvy + tech-optimistic individuals are at a much higher risk of harm here than say large companies. They are more likely to (1) give models unrestricted access to interesting things (2) overlook possible harm through prompt injection due to lack of expertise (3) expose other more traditional attack vectors which could be combined with prompt injection.”
             </blockquote>
             <div class="folks-list">
                 <strong>Folks in this bucket:</strong>
@@ -270,7 +274,7 @@
         <div class="row mt-3">
             <div class="col">
                 <h2 class="main-section-title">The "Implicit" Prediction: We don't solve prompt injection this year</h2>
-                <p>I only remember one person who mentioned defenses in their answer (Edoardo, who is not coincidentally the first author of "<a href="https://arxiv.org/abs/2503.18813" target="_blank" rel="noopener noreferrer">Defeating Prompt Injections by Design</a>"). One way of interpreting the omission from most answers is an implicit belief that we won't have a bulletproof solution to prompt injection this year. This could be one of two things: either the defense doesn’t exist, or the defense (for a variety of reasons) won’t be deployed. I don't think this is very controversial, but I should hedge that it could come down to the wording of the question. The worst outcome of a prompt injection is unlikely to be the result of an attack on the best defended system. If only one system is deployed which has a solution to prompt injection, the worst outcome will happen on a different system. A corollary of this: improvements to ML security that help everybody are way better than improvements that help only one company.</p>
+                <p>I only remember one person who mentioned defenses in their answer (Edoardo, who is not coincidentally the first author of "<a href="https://arxiv.org/abs/2503.18813" target="_blank" rel="noopener noreferrer">Defeating Prompt Injections by Design</a>"). One way of interpreting the omission from most answers is an implicit belief that we won't have a bulletproof solution to prompt injection this year. This could be one of two things: either the defense doesn’t exist, or the defense (for a variety of reasons) won’t be deployed. I’m not sure which of these people preferred, but it could come down to the wording of the question. The worst outcome of a prompt injection is unlikely to be the result of an attack on the best defended system. If only one system is deployed which has a solution to prompt injection, the worst outcome will happen on a different system. A corollary of this: improvements to ML security that help everybody are way better than improvements that help only one company.</p>
             </div>
         </div>
     </div>
